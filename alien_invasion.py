@@ -2,6 +2,9 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship 
+
+
 
 class AlienInvasion:
 
@@ -15,6 +18,7 @@ class AlienInvasion:
         #self.screen is a SURFACE, allows for game elements to be displayed
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
+        self.ship = Ship(self)
 
         #set the background color
         #red,green,blue
@@ -30,9 +34,10 @@ class AlienInvasion:
                     sys.exit()
                 #this calls on the color that we set in the init method
                 self.screen.fill(self.bg_color)
+                self.ship.blitme()
 
                 pygame.display.flip()
 
 if __name__ == '__main__':
     ai = AlienInvasion()
-    ai.run_game
+    ai.run_game()
