@@ -17,6 +17,7 @@ class Settings:
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60,60,60)
+        self.bullets_allowed = 3 #this limits the number of bullets on the screen
 
         #this code sets how fast the ship is moving when a left/right key 
         #is pressed 

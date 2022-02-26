@@ -39,7 +39,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self._update_screen()
-            self.bullets.update() #this updates position of bullet while true
+            self._update_bullets() #this updates position of bullet while true
             self.ship.update()
             #this for loop returns list of events that have happened
             #event is action performed by user 
@@ -52,7 +52,7 @@ class AlienInvasion:
                     self.bulleets.remove(bullet)
             print(len(self.bullets))
 
-            
+
     def _check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -91,9 +91,18 @@ class AlienInvasion:
 
     def _fire_bullet(self):
         #creates a new bullet and adds it to the bullets group
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
 #update_screen redraws the screen on each pass through the main loop
+
+    def _update_bullets(self):
+        self.bullets.update()
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <=0:
+                self.bullets.remove(bullet)
+                print(len(self.bullets))
+
     def _update_screen(self):
         #this method updates the image on the screen
          #this calls on the color that we set in the init method
