@@ -75,7 +75,7 @@ class AlienInvasion:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
-
+#update_screen redraws the screen on each pass through the main loop
     def _update_screen(self):
         #this method updates the image on the screen
          #this calls on the color that we set in the init method
