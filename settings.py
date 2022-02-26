@@ -8,7 +8,7 @@ class Settings:
         # in the alien invasion file 
         self.screen_width = 1200
         self.screen_height = 800
-        self.bg_color = (230,150,175)
+        self.bg_color = (230,230,230)
 
         #this code sets how fast the ship is moving when a left/right key 
         #is pressed 

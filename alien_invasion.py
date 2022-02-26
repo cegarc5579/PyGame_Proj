@@ -12,10 +12,18 @@ class AlienInvasion:
         #this calls the background setting for the game
         pygame.init()
         self.settings = Settings()
+
+
+        #the following code runs the game in full screen mode
+
+        #self.screen = pygame.display.set_mode((0,0), pygame. FULLSCREEN)
+        #self.settings.screen_width = self.screen.get_rect().width
+        #self.settings.screen_height = self.screen.get_rect().height
+        
         #this creates a screen for the game to run on 
         #1200 and 800 are th dimensions on the window
         #use self.screen so it will be available in all methods in the class
-        #self.screen is a SURFACE, allows for game elements to be displayed
+        #self.screen is a SURFACE, allows for game elements to be displayed        
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
@@ -57,6 +65,10 @@ class AlienInvasion:
             self.ship.moving_right = True
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
+        #this next code is for when Q is pressed
+        #when Q is pressed the game will quit
+        elif event.key == pygame.K_q:
+            sys.exit()
 
     def _check_keyup_events(self,event):
         if event.key == pygame.K_RIGHT:

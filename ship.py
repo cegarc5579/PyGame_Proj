@@ -32,7 +32,8 @@ class Ship:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed
-
+#this controls the position of the ship 
+#so when it moves it updates self.rect.x
         self.rect.x = self.x
     
     def blitme(self):
