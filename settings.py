@@ -9,3 +9,8 @@ class Settings:
         self.screen_width = 1200
         self.screen_height = 800
         self.bg_color = (230,150,175)
+
+        #this code sets how fast the ship is moving when a left/right key 
+        #is pressed 
+        #moves 1.5 pixels when a button is pressed instead of 1 pixel
+        self.ship_speed = 1.5
