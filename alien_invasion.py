@@ -45,6 +45,14 @@ class AlienInvasion:
             #event is action performed by user 
             #we removed the code that belongs to the notes above
             #and put it under the updata screen 
+
+            #gets rid of bullets that have disappeared
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <=0:
+                    self.bulleets.remove(bullet)
+            print(len(self.bullets))
+
+            
     def _check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
