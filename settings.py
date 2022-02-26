@@ -10,6 +10,14 @@ class Settings:
         self.screen_height = 800
         self.bg_color = (230,230,230)
 
+        #bullet settings
+        #this creates a dark gray bullet with a width of 3 pixels and a 
+        #height of 15 pixels
+        self.bullet_speed = 1.0
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = (60,60,60)
+
         #this code sets how fast the ship is moving when a left/right key 
         #is pressed 
         #moves 1.5 pixels when a button is pressed instead of 1 pixel
