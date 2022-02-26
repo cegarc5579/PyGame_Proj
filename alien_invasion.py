@@ -3,6 +3,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship 
+from bullet import Bullet
 
 
 
@@ -27,6 +28,7 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
         #set the background color
         #red,green,blue
@@ -37,6 +39,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self._update_screen()
+            self.bullets.update() #this updates position of bullet while true
             self.ship.update()
             #this for loop returns list of events that have happened
             #event is action performed by user 
@@ -69,12 +72,19 @@ class AlienInvasion:
         #when Q is pressed the game will quit
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     def _check_keyup_events(self,event):
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
+
+    def _fire_bullet(self):
+        #creates a new bullet and adds it to the bullets group
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
 #update_screen redraws the screen on each pass through the main loop
     def _update_screen(self):
         #this method updates the image on the screen
@@ -82,6 +92,8 @@ class AlienInvasion:
         self.screen.fill(self.bg_color)
         self.ship.blitme()
         pygame.display.flip()
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
 
 if __name__ == '__main__':
     ai = AlienInvasion()
