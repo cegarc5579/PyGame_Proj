@@ -91,9 +91,9 @@ class AlienInvasion:
          #this calls on the color that we set in the init method
         self.screen.fill(self.bg_color)
         self.ship.blitme()
-        pygame.display.flip()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        pygame.display.flip()
 
 if __name__ == '__main__':
     ai = AlienInvasion()
