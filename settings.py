@@ -23,3 +23,6 @@ class Settings:
         #is pressed 
         #moves 1.5 pixels when a button is pressed instead of 1 pixel
         self.ship_speed = 1.5
+
+        #slien settings, setting speed at which they move
+        self.alien_speed = 1.0

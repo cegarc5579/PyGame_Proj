@@ -42,9 +42,12 @@ class AlienInvasion:
     def run_game(self):
         while True:
             self._check_events()
-            self._update_screen()
-            self._update_bullets() #this updates position of bullet while true
             self.ship.update()
+            self._update_bullets() #this updates position of bullet while true
+            self._update_aliens()
+            self._update_screen()
+         
+         
             #this for loop returns list of events that have happened
             #event is action performed by user 
             #we removed the code that belongs to the notes above
@@ -107,6 +110,10 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
                 print(len(self.bullets))
 
+    def _update_aliens(self):
+        #updates the position of the aliens in the fleet
+        self.aliens.update()
+
     def _create_fleet(self):
         #this makes an alien
         alien = Alien(self)
@@ -132,6 +139,7 @@ class AlienInvasion:
     
     def _create_alien(self, alien_number, row_number):
         alien = Alien(self)
+        #why is alien_height appearing blacked out? 
         alien_width, alien_height = alien.rect.size
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
