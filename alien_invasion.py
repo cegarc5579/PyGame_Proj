@@ -112,6 +112,8 @@ class AlienInvasion:
 
     def _update_aliens(self):
         #updates the position of the aliens in the fleet
+        #checks if the fleet is at an edge, then update positions of all aliens in the fleet 
+        self._check_fleet_edges()
         self.aliens.update()
 
     def _create_fleet(self):
@@ -145,6 +147,19 @@ class AlienInvasion:
         alien.rect.x = alien.x
         alien.rect.y = alien.rect.height + 2 *alien.rect.height * row_number
         self.aliens.add(alien)
+
+    #this checks to see if alien has reached the edge
+    def _check_fleet_edges(self):
+        for alien in self.aliens.sprites():
+            if alien.check_edges():
+                self._change_fleet_direction()
+                break
+#following code changes direction of fleet when edge is hit 
+    def _change_fleet_direction(self):
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.fleet_drop_speed
+            #this moves the aliens left because of the -1
+        self.settings.fleet_direction *= - 1
 
         
 

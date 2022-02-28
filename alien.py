@@ -20,11 +20,20 @@ class Alien(Sprite):
         
         #this sets the pic of the alien using the x axis 
         self.x = float(self.rect.x)
+    def check_edges(self):
+        #code to return true if alien is at edge and will move back
+        screen_rect = self.screen.get_rect()
+        if self.rect.right >= screen_rect.right or self.rect.left <=0:
+            return True
 
     def update(self):
         #this moves the alien to the right
-        self.x += self.settings.alien_speed
-        self.rect.x = self.x 
+        self.x += (self.settings.alien_speed * self.settings.fleet_direction)
+        self.rect.x = self.x
+
+   
+
+
 
 
        
