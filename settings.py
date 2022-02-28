@@ -25,11 +25,11 @@ class Settings:
         #moves 1.5 pixels when a button is pressed instead of 1 pixel
         #ship settings
         self.ship_speed = 1.5
-        self.ship_limit = 2 #this sets the number of ships the player starts with 
+        self.ship_limit = 3 #this sets the number of ships the player starts with 
 
         #slien settings, setting speed at which they move
         self.alien_speed = 4.0
-        self.fleet_drop_speed = 10 #how wuick the fleet drops down when reaches the edge
+        self.fleet_drop_speed = 100 #how wuick the fleet drops down when reaches the edge
         self.fleet_direction = 1 #1 represents it will move right and -1 means the ships move left
 
         #how quickly the game speeds up 
