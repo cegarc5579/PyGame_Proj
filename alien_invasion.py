@@ -90,7 +90,10 @@ class AlienInvasion:
 
     def _check_play_button(self,mouse_pos):
         #start a new game when player click play code
-        if self.play_button.rect.collidepoint(mouse_pos):
+        #the next two lines of code allow for the play button to not be clicked on
+        #even when it isn't visible on the screen
+        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+        if button_clicked and not self.stats.game_active:
             #reset game stats
             self.stats.reset_stats()
             self.stats.game_active = True
