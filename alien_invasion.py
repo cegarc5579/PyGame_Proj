@@ -160,6 +160,7 @@ class AlienInvasion:
             for aliens in collisions.values():
                 self.stats.score += self.settings.alien_points * len(aliens)
             self.sb.prep_score()
+            self.sb.check_high_score()
 #this is to repopulate the fleet if the screen is empty
         if not self.aliens:
             self.bullets.empty()
