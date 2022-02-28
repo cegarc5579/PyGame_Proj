@@ -28,7 +28,7 @@ class Settings:
         self.ship_limit = 2 #this sets the number of ships the player starts with 
 
         #slien settings, setting speed at which they move
-        self.alien_speed = 1.0
+        self.alien_speed = 4.0
         self.fleet_drop_speed = 10 #how wuick the fleet drops down when reaches the edge
         self.fleet_direction = 1 #1 represents it will move right and -1 means the ships move left
 
