@@ -119,9 +119,10 @@ class AlienInvasion:
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        #this updates the screen and adds the alien
         self.aliens.draw(self.screen)
 
-        
+
         pygame.display.flip()
 
 if __name__ == '__main__':
