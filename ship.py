@@ -1,9 +1,11 @@
 import pygame
 #pygame treats all game elements like rectangles
+from pygame.sprite import Sprite
 
-class Ship:
+class Ship(Sprite):
     #class manages the ship bmp pile that we are uploading
     def __init__(self, ai_game):
+        super().__init__()
         #this puts the ship picture in its starting position
         self.screen = ai_game.screen
         self.settings = ai_game.settings
