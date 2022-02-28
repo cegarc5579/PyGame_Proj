@@ -71,9 +71,6 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_pos = pygame.mouse.get_pos()
-                self._check_play_button(mouse_pos)
             #this elif detects a keydown event
             #and it chekcs if a key pressed triggers an actions
             #this affects the ship by a value of 1 when a key is pressed
@@ -87,6 +84,10 @@ class AlienInvasion:
         #false means no key press
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
+                
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                self._check_play_button(mouse_pos)
 
     def _check_play_button(self,mouse_pos):
         #start a new game when player click play code
