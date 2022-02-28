@@ -106,6 +106,7 @@ class AlienInvasion:
             #reset game stats
             self.stats.reset_stats()
             self.stats.game_active = True
+            self.sb.prep_score()
 
             #get rid of anything else
             self.aliens.empty()
@@ -146,7 +147,7 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <=0:
                 self.bullets.remove(bullet)
-                print(len(self.bullets))
+                #print(len(self.bullets))
 
         self._check_bullet_alien_collisions()
 
@@ -154,6 +155,11 @@ class AlienInvasion:
         #this checks to see if bullets and aliens have collided
         #groupcollide compares rects to see if they have collided
         collisions = pygame.sprite.groupcollide(self.bullets,self.aliens,True,True)
+
+        if collisions:
+            for aliens in collisions.values():
+                self.stats.score += self.settings.alien_points * len(aliens)
+            self.sb.prep_score
 #this is to repopulate the fleet if the screen is empty
         if not self.aliens:
             self.bullets.empty()
@@ -257,7 +263,7 @@ class AlienInvasion:
         
         #this updates the sceen and draws the scoreboard onto the screen
         self.sb.show_score()
-        
+
         #draw the play button is game isn't active
         if not self.stats.game_active:
             self.play_button.draw_button()

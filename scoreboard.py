@@ -12,7 +12,7 @@ class Scoreboard:
 
         #this is to initialize the font settings 
         #for the scoreboard we are making
-        self.text_color(30,30,30)
+        self.text_color = (30,30,30)
         self.font = pygame.font.SysFont(None,48)
 
         #prepare the initial score image
@@ -25,6 +25,7 @@ class Scoreboard:
         self.score_image = self.font.render(score_str, True,self.text_color, self.settings.bg_color)
 
         #the next line makes sure that the score lines up with the right side of the scren 
+        
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - 20 #20 pixels from right send of the screen 
         self.score_rect.top = 20 #sets 20 pixels from the top of the screen 

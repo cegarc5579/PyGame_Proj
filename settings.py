@@ -45,6 +45,9 @@ class Settings:
 
         #fleet direction, 1 means it'll move right and -1 means itll move left
         self.fleet_direction = 1
+
+        #scoring
+        self.alien_points = 50
 #increases everything once a new level is reached 
     def increase_speed(self):
 
