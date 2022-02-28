@@ -53,6 +53,8 @@ class AlienInvasion:
                 self.ship.update()
                 self._update_bullets() #this updates position of bullet while true
                 self._update_aliens()
+            
+            
             self._update_screen()
          
          
