@@ -42,3 +42,7 @@ class Ship:
         #this draws the image to the screen at the position specificed by
         #self.rect, which is midbottom
         self.screen.blit(self.image,self.rect)
+
+    def center_ship(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
