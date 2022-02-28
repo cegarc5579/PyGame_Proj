@@ -61,12 +61,6 @@ class AlienInvasion:
             #we removed the code that belongs to the notes above
             #and put it under the updata screen 
 
-            #gets rid of bullets that have disappeared
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <=0:
-                    self.bulleets.remove(bullet)
-            print(len(self.bullets))
-
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -112,6 +106,7 @@ class AlienInvasion:
 #update_screen redraws the screen on each pass through the main loop
 
     def _update_bullets(self):
+        #gets rid of bullets that have disappeared
         self.bullets.update()
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <=0:
@@ -141,7 +136,7 @@ class AlienInvasion:
             self._ship_hit()
         
         #this is for aliens hitting the bottom of the screen
-        self._check_aliens_bottom
+        self._check_aliens_bottom()
 
     def _create_fleet(self):
         #this makes an alien
@@ -191,7 +186,6 @@ class AlienInvasion:
     def _ship_hit(self):
         #decreases number of ships left when hit 
         if self.stats.ships_left>0:
-
             self.stats.ships_left -= 1
         #deletes any remaining aliens and bullets 
             self.aliens.empty()
