@@ -18,6 +18,7 @@ class Scoreboard:
         #prepare the initial score image
         self.prep_score() #this turns the text into an image
         self.prep_high_score()#prepares the initial score images  
+        self.prep_level()
     
     def prep_score(self):
         #this puts the score as an image
@@ -34,7 +35,9 @@ class Scoreboard:
     
     def show_score(self):
         self.screen.blit(self.score_image, self.score_rect)#this draws the score to the screen 
-        self.screen.blit(self.high_score_image, self.high_score_rect)
+        self.screen.blit(self.high_score_image, self.high_score_rect)#draw high score to screen
+        self.screen.blit(self.level_image,self.level_rect) #draws image to the screen
+        
 
 
 
@@ -53,3 +56,13 @@ class Scoreboard:
         if self.stats.score > self.stats.high_score:
             self.stats.high_score = self.stats.score
             self.prep_high_score()
+
+    def prep_level(self):
+        #turns level into a rendered image for screen use
+        level_str = str(self.stats.level)
+        self.level_image = self.font.render(level_str,True,self.text_color,self.settings.bg_color)
+
+        #this puts the level underneath the score you have in the game 
+        self.level_rect = self.level_image.get_rect()
+        self.level_rect.right = self.score_rect.right #sets image to the right of the score attribute 
+        self.level_rect.top = self.score_rect.bottom + 10 #10 pixels beneath bottom of score image 
