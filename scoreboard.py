@@ -21,7 +21,8 @@ class Scoreboard:
     def prep_score(self):
         #this puts the score as an image
         #render means you pass the screen bg color and text color 
-        score_str = str(self.stats.score)
+        rounded_score = round(self.stats.score,-1)
+        score_str = "{:,}".format(rounded_score)
         self.score_image = self.font.render(score_str, True,self.text_color, self.settings.bg_color)
 
         #the next line makes sure that the score lines up with the right side of the scren 
