@@ -1,6 +1,7 @@
 class Settings:
     #this is used to store all settings for the game
     #allow to modify the game's appearance
+    #initialize the game static settings
     def __init__(self):
         #do you take this out of the other game file if setting it here?
         # so yes, you replace the hard code in the other
@@ -30,3 +31,23 @@ class Settings:
         self.alien_speed = 1.0
         self.fleet_drop_speed = 100 #how wuick the fleet drops down when reaches the edge
         self.fleet_direction = 1 #1 represents it will move right and -1 means the ships move left
+
+        #how quickly the game speeds up 
+        self.speedup_scale = 1.1
+
+        self.initialize_dynamic_settings()
+
+    def initialize_dynamic_settings(self):
+
+        self.ship_speed = 1.5
+        self.bullet_speed = 3.0
+        self.alien_speed = 1.0
+
+        #fleet direction, 1 means it'll move right and -1 means itll move left
+        self.fleet_direction = 1
+#increases everything once a new level is reached 
+    def increase_speed(self):
+
+        self.ship_speed *= self.speedup_scale
+        self.bullet_speed *= self.speedup_scale
+        self.alien_speed *= self.speedup_scale
