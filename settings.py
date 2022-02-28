@@ -13,7 +13,7 @@ class Settings:
         #bullet settings
         #this creates a dark gray bullet with a width of 3 pixels and a 
         #height of 15 pixels
-        self.bullet_speed = 1.0
+        self.bullet_speed = 1.5
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60,60,60)
