@@ -6,6 +6,7 @@ import pygame
 
 from settings import Settings
 from game_stats import GameStats
+from button import Button
 from ship import Ship 
 from bullet import Bullet
 from alien import Alien
@@ -39,6 +40,8 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
         #this creates a group to hold the fleet of aliens
         self._create_fleet()
+        #this code makes the play button 
+        self.play_button = Button(self, "Play")
 
         #set the background color
         #red,green,blue
@@ -218,6 +221,10 @@ class AlienInvasion:
             bullet.draw_bullet()
         #this updates the screen and adds the alien
         self.aliens.draw(self.screen)
+
+        #draw the play button is game isn't active
+        if not self.stats.game_active:
+            self.play_button.draw_button()
 
 
         pygame.display.flip()

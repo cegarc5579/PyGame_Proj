@@ -24,7 +24,7 @@ class Settings:
         #moves 1.5 pixels when a button is pressed instead of 1 pixel
         #ship settings
         self.ship_speed = 1.5
-        self.ship_limit = 3 #this sets the number of ships the player starts with 
+        self.ship_limit = 2 #this sets the number of ships the player starts with 
 
         #slien settings, setting speed at which they move
         self.alien_speed = 1.0
