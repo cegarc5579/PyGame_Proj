@@ -42,7 +42,7 @@ class Scoreboard:
         self.screen.blit(self.score_image, self.score_rect)#this draws the score to the screen 
         self.screen.blit(self.high_score_image, self.high_score_rect)#draw high score to screen
         self.screen.blit(self.level_image,self.level_rect) #draws image to the screen
-
+        self.ships.draw(self.screen)
 
 
 
@@ -72,11 +72,11 @@ class Scoreboard:
         self.level_rect.right = self.score_rect.right #sets image to the right of the score attribute 
         self.level_rect.top = self.score_rect.bottom + 10 #10 pixels beneath bottom of score image 
 
-    def prep_ships(self):
+    def prep_ships(self): #creates an empty group for ships
         #show how many ships we have left
         self.ships = Group()
         for ship_number in range(self.stats.ships_left):
             ship = Ship(self.ai_game)
             ship.rect.x = 10 + ship_number * ship.rect.widthship
-            ship.rect.y = 10
-            self.ships.add(ship)
+            ship.rect.y = 10 #10 pixels from top of screen 
+            self.ships.add(ship)#this adds new ships to the ship group
