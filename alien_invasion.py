@@ -112,6 +112,11 @@ class AlienInvasion:
         #this checks to see if bullets and aliens have collided
         #groupcollide compares rects to see if they have collided
         collisions = pygame.sprite.groupcollide(self.bullets,self.aliens,True,True)
+#this is to repopulate the fleet if the screen is empty
+        if not self.aliens:
+            self.bullets.empty()
+            self._create_fleet()
+
 
     def _update_aliens(self):
         #updates the position of the aliens in the fleet
