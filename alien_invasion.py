@@ -94,6 +94,9 @@ class AlienInvasion:
         #even when it isn't visible on the screen
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
+            #this hides the mouse cursor
+            pygame.mouse.set_visible(False)
+
             #reset game stats
             self.stats.reset_stats()
             self.stats.game_active = True
@@ -223,6 +226,8 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.stats.game_active = False
+            #this next line causes cursor to reappear when game is over
+            pygame.mouse.set_visible(True)
 
     def _check_aliens_bottom(self):
         screen_rect = self.screen.get_rect()
